@@ -1,6 +1,7 @@
-import Food from '../models/Food.js';
+import express from 'express';
+import { stats } from '../controllers/stats.js';
 
-export const stats = async (req,res)=>{
- const data = await Food.find();
- res.json(data);
-};
+const r = express.Router();
+r.get('/',stats);
+
+export default r;
