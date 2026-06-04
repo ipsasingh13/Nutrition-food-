@@ -1,10 +1,7 @@
-export const ai = (req,res)=>{
- const {goal}=req.body;
+import express from 'express';
+import { ai } from '../controllers/ai.js';
 
- let msg='balanced diet';
+const r = express.Router();
+r.post('/recommend',ai);
 
- if(goal==='loss') msg='low carb diet';
- if(goal==='gain') msg='high protein diet';
-
- res.json({msg});
-};
+export default r;
